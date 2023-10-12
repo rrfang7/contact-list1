@@ -12,8 +12,9 @@ export default function Contactlist() {
     useEffect (() => {
         async function fetchContacts() {
             try {
-                const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/');
+                const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users');
                 const data = await response.json();
+                setContacts(data)
             }
             catch (error) {
                 console.error(error);
