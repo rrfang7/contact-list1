@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Contactlist from './components/Contactlist'
+import ContactList from './components/ContactList';
+import SelectedContact from './components/SelectedContact'
 
 // const dummyContacts = [
 //   { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
@@ -15,13 +16,16 @@ function App() {
   // console.log("Contacts: ", contacts);
 
   return (
-    <>
-    {selectedContactId ? (
-      <div>Selected Contact View</div>
-    ) : (
-    <Contactlist />
-    )}
-    </>
+    <div>
+  {selectedContactId ? (
+    <SelectedContact
+      selectedContactId={selectedContactId}
+      setSelectedContactId={setSelectedContactId}
+    />
+  ) : (
+    <ContactList setSelectedContactId={setSelectedContactId} />
+  )}
+</div>
   );
 }
 
